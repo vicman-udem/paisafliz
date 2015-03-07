@@ -14,7 +14,10 @@
 		<c:forEach var = "item" items="${movies}">
 			<tr>
 				<td>
-					${item}
+					${item.name}
+				</td>
+				<td>
+					${item.year}
 				</td>
 			</tr>
 		</c:forEach>
