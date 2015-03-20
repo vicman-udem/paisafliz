@@ -1,7 +1,8 @@
 package co.com.udem.paisafliz.business.impl;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class MoviesServiceImpl implements MoviesService {
 	@Autowired
 	private MoviesDAO moviesDAO;
 	
+	@Transactional
 	public List<MovieDTO> getMoviesList() {
 		List<MovieDTO> movies = moviesDAO.getMoviesList();
 		
