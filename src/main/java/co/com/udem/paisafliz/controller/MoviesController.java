@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.com.udem.paisafliz.DTO.MovieDTO;
 import co.com.udem.paisafliz.business.MoviesService;
+import co.com.udem.paisafliz.domain.Moviee;
 
 @Controller
 @RequestMapping("/movies")
@@ -23,7 +24,7 @@ public class MoviesController {
 	@RequestMapping("/list")
 	public ModelAndView MoviesList(@RequestParam(value = "name", required = false, defaultValue = "Victor") String name){
 		
-		List<MovieDTO> movies = moviesService.getMoviesList();
+		List<Moviee> movies = moviesService.getMoviesList();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("movies", movies);
 		mv.addObject("name", name);
@@ -31,9 +32,9 @@ public class MoviesController {
 	}
 	
 	@RequestMapping("/listAPI")
-	public @ResponseBody List<MovieDTO> MoviesListAPI(@RequestParam(value = "name", required = false, defaultValue = "Victor") String name){
+	public @ResponseBody List<Moviee> MoviesListAPI(@RequestParam(value = "name", required = false, defaultValue = "Victor") String name){
 		System.out.println(name);
-		List<MovieDTO> movies = moviesService.getMoviesList();
+		List<Moviee> movies = moviesService.getMoviesList();
 		return movies;
 	}
 
